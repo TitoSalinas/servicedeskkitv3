@@ -91,14 +91,7 @@ class AdminPanelProvider extends PanelProvider
                     ->setSort(10)
                     ->shouldRegisterNavigation(false)
                     ->shouldShowEmailForm()
-                    ->shouldShowLocaleForm(options: [
-                        'pt_BR' => __('🇧🇷 Português'),
-                        'en' => __('🇺🇸 Inglês'),
-                        'es' => __('🇪🇸 Espanhol'),
-                    ])
-                    ->shouldShowThemeColorForm()
                     ->shouldShowSanctumTokens()
-                    ->shouldShowMultiFactorAuthentication()
                     ->shouldShowBrowserSessionsForm()
                     ->shouldShowAvatarForm(),
             ])

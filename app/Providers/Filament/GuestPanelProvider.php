@@ -52,7 +52,6 @@ class GuestPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->plugins([])
-            ->userMenu(false)
             ->topNavigation()
             ->databaseNotifications(false);
     }

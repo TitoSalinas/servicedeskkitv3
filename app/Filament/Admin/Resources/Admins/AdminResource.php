@@ -10,10 +10,9 @@ use App\Filament\Admin\Resources\Admins\Schemas\AdminForm;
 use App\Filament\Admin\Resources\Admins\Schemas\AdminInfolist;
 use App\Filament\Admin\Resources\Admins\Tables\AdminsTable;
 use App\Models\Admin;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Cache;
 
@@ -23,7 +22,7 @@ class AdminResource extends Resource
 {
     protected static ?string $model = Admin::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserCircle;
+    protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
     protected static bool $isGloballySearchable = true;
 
@@ -64,14 +63,14 @@ class AdminResource extends Resource
         return (string) Cache::rememberForever('admins_count', fn () => Admin::query()->count());
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return AdminForm::configure($schema);
+        return AdminForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return AdminInfolist::configure($schema);
+        return AdminInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table

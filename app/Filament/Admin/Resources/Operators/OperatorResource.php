@@ -10,10 +10,9 @@ use App\Filament\Admin\Resources\Operators\Schemas\OperatorForm;
 use App\Filament\Admin\Resources\Operators\Schemas\OperatorInfolist;
 use App\Filament\Admin\Resources\Operators\Tables\OperatorsTable;
 use App\Models\Operator;
-use BackedEnum;
+use Filament\Forms\Form;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Cache;
 
@@ -23,7 +22,7 @@ class OperatorResource extends Resource
 {
     protected static ?string $model = Operator::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Wrench;
+    protected static ?string $navigationIcon = 'heroicon-o-wrench';
 
     protected static bool $isGloballySearchable = true;
 
@@ -64,14 +63,14 @@ class OperatorResource extends Resource
         return (string) Cache::rememberForever('operators_count', fn () => Operator::query()->count());
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return OperatorForm::configure($schema);
+        return OperatorForm::configure($form);
     }
 
-    public static function infolist(Schema $schema): Schema
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return OperatorInfolist::configure($schema);
+        return OperatorInfolist::configure($infolist);
     }
 
     public static function table(Table $table): Table

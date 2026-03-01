@@ -2,20 +2,20 @@
 
 namespace App\Filament\Admin\Resources\Admins\Schemas;
 
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 
 use function filled;
 
 class AdminForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
+        return $form
             ->columns(1)
-            ->components([
+            ->schema([
                 Section::make()
                     ->columns()
                     ->schema([

@@ -11,10 +11,7 @@ use Filament\Forms;
 use Filament\Infolists;
 use Filament\Notifications;
 use Filament\Pages;
-use Filament\Schemas;
-use Filament\Support\Enums\Width;
 use Filament\Support\Facades\FilamentView;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Contracts\View\View;
@@ -64,7 +61,6 @@ class AppServiceProvider extends ServiceProvider
         Model::automaticallyEagerLoadRelationships();
 
         $this->configureActions();
-        $this->configureSchema();
         $this->configureForms();
         $this->configureInfolists();
         $this->configurePages();
@@ -74,57 +70,42 @@ class AppServiceProvider extends ServiceProvider
     private function configureActions(): void
     {
         Actions\ActionGroup::configureUsing(function (Actions\ActionGroup $action) {
-            return $action->icon(Heroicon::EllipsisVertical);
+            return $action->icon('heroicon-m-ellipsis-vertical');
         });
 
         Actions\Action::configureUsing(function (Actions\Action $action) {
             return $action
                 ->translateLabel()
-                ->modalWidth(Width::Medium)
+                ->modalWidth('md')
                 ->closeModalByClickingAway(false);
         });
 
         Actions\CreateAction::configureUsing(function (Actions\CreateAction $action) {
             return $action
-                ->icon(Heroicon::Plus)
+                ->icon('heroicon-m-plus')
                 ->hiddenLabel()
                 ->createAnother(false);
         });
 
         Actions\EditAction::configureUsing(function (Actions\EditAction $action) {
             return $action
-                ->icon(Heroicon::PencilSquare)
+                ->icon('heroicon-m-pencil-square')
                 ->hiddenLabel()
                 ->button();
         });
 
         Actions\DeleteAction::configureUsing(function (Actions\DeleteAction $action) {
             return $action
-                ->icon(Heroicon::Trash)
+                ->icon('heroicon-m-trash')
                 ->hiddenLabel()
                 ->button();
         });
 
         Actions\ViewAction::configureUsing(function (Actions\ViewAction $action) {
             return $action
-                ->icon(Heroicon::Eye)
+                ->icon('heroicon-m-eye')
                 ->hiddenLabel()
                 ->button();
-        });
-    }
-
-    private function configureSchema(): void
-    {
-        Schemas\Schema::configureUsing(function (Schemas\Schema $schema) {
-            return $schema
-                ->defaultCurrency(config('servicedeskkit.defaultCurrency'))
-                ->defaultDateDisplayFormat(config('servicedeskkit.defaultDateDisplayFormat'))
-                ->defaultIsoDateDisplayFormat(config('servicedeskkit.defaultIsoDateDisplayFormat'))
-                ->defaultDateTimeDisplayFormat(config('servicedeskkit.defaultDateTimeDisplayFormat'))
-                ->defaultIsoDateTimeDisplayFormat(config('servicedeskkit.defaultIsoDateTimeDisplayFormat'))
-                ->defaultNumberLocale(config('servicedeskkit.defaultNumberLocale'))
-                ->defaultTimeDisplayFormat(config('servicedeskkit.defaultTimeDisplayFormat'))
-                ->defaultIsoTimeDisplayFormat(config('servicedeskkit.defaultIsoTimeDisplayFormat'));
         });
     }
 

@@ -1,9 +1,6 @@
-@import 'tailwindcss';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 ::-webkit-scrollbar {
     width: .56vw !important;
@@ -48,24 +45,24 @@
 }
 
 .fi-breadcrumbs .fi-breadcrumbs-item-label {
-    @apply text-xs!;
+    @apply !text-xs;
 }
 
 .choices__item--selectable {
-    @apply cursor-pointer!;
+    @apply !cursor-pointer;
 }
 
 .fi-sidebar {
-    @apply bg-white! dark:bg-gray-900!;
+    @apply !bg-white dark:!bg-gray-900;
 }
 
 .fi-sidebar-item a,
 .fi-tenant-menu-trigger {
-    @apply hover:bg-gray-200/50! hover:dark:bg-gray-800!;
+    @apply hover:!bg-gray-200/50 hover:dark:!bg-gray-800;
 }
 
 .fi-sidebar-item-active a {
-    @apply bg-gray-200/50! dark:bg-gray-800!;
+    @apply !bg-gray-200/50 dark:!bg-gray-800;
 }
 
 .fi-btn.fi-color-primary {

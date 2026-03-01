@@ -1,20 +1,20 @@
 <div class="filament-hidden">
 
-![ServiceDeskKit](https://raw.githubusercontent.com/jeffersongoncalves/servicedeskkitv3/main/art/jeffersongoncalves-servicedeskkitv3.png)
+![ServiceDeskKit v3](https://raw.githubusercontent.com/jeffersongoncalves/servicedeskkitv3/main/art/jeffersongoncalves-servicedeskkitv3.png)
 
 </div>
 
-# ServiceDeskKit Start Kit Filament 5.x and Laravel 12.x
+# ServiceDeskKit Start Kit Filament 3.x and Laravel 12.x
 
 ## About ServiceDeskKit
 
-ServiceDeskKit is a robust starter kit built on Laravel 12.x and Filament 5.x, designed to accelerate the development of modern
+ServiceDeskKit is a robust starter kit built on Laravel 12.x and Filament 3.x, designed to accelerate the development of modern
 web applications with a ready-to-use multi-panel structure.
 
 ## Features
 
 - **Laravel 12.x** - The latest version of the most elegant PHP framework
-- **Filament 5.x** - Powerful and flexible admin framework
+- **Filament 3.x** - Powerful and flexible admin framework
 - **Multi-Panel Structure** - Includes four pre-configured panels:
     - Admin Panel (`/admin`) - For system administrators
     - Agent Panel (`/agent`) - For support operators/agents
@@ -206,34 +206,33 @@ The `config/servicedeskkit.php` file centralizes the configuration of the starte
 
 ## User Profile — joaopaulolndev/filament-edit-profile
 
-This project already comes with the Filament Edit Profile plugin integrated for the Admin and App panels. It adds a complete profile editing page with avatar, language, theme color, security (tokens, MFA), browser sessions, and email/password change.
+This project already comes with the Filament Edit Profile plugin integrated for the Admin, Agent and App panels. It adds a complete profile editing page with avatar, security (Sanctum tokens), browser sessions, and email/password change.
 
 - Routes (defaults in this project):
   - Admin: /admin/my-profile
+  - Agent: /agent/my-profile
   - App: /app/my-profile
 - Navigation: by default, the page does not appear in the menu (shouldRegisterNavigation(false)). If you want to show it in the sidebar menu, change it to true in the panel provider.
 
 Where to configure
 - Panel providers
   - Admin: app/Providers/Filament/AdminPanelProvider.php
+  - Agent: app/Providers/Filament/AgentPanelProvider.php
   - App: app/Providers/Filament/AppPanelProvider.php
   In these files you can adjust:
   - ->slug('my-profile') to change the URL (e.g., 'profile')
   - ->setTitle('My Profile') and ->setNavigationLabel('My Profile')
   - ->setNavigationGroup('Group Profile'), ->setIcon('heroicon-o-user'), ->setSort(10)
   - ->shouldRegisterNavigation(true|false) to show/hide it in the menu
-  - Shown forms: ->shouldShowEmailForm(), ->shouldShowLocaleForm([...]), ->shouldShowThemeColorForm(), ->shouldShowSanctumTokens(), ->shouldShowMultiFactorAuthentication(), ->shouldShowBrowserSessionsForm(), ->shouldShowAvatarForm()
+  - Shown forms: ->shouldShowEmailForm(), ->shouldShowSanctumTokens(), ->shouldShowBrowserSessionsForm(), ->shouldShowAvatarForm()
 
 - General settings: config/filament-edit-profile.php
-  - locales: language options available on the profile page
-  - locale_column: column used in your model for language/locale (default: locale)
-  - theme_color_column: column for theme color (default: theme_color)
   - avatar_column: avatar column (default: avatar_url)
   - disk: storage disk used for the avatar (default: public)
   - visibility: file visibility (default: public)
 
 Migrations and models
-- The required columns are already included in this kit's default migrations (users and admins): avatar_url, locale and theme_color, using the names defined in config/filament-edit-profile.php.
+- The required columns are already included in this kit's default migrations (users and admins): avatar_url, using the names defined in config/filament-edit-profile.php.
 - The App\Models\User and App\Models\Admin models already read the avatar using the plugin configuration (getFilamentAvatarUrl).
 
 Avatar storage
@@ -242,7 +241,7 @@ Avatar storage
 - Adjust the disk and visibility in the config file according to your infrastructure.
 
 Quick access
-- Via direct URL: /admin/my-profile or /app/my-profile
+- Via direct URL: /admin/my-profile, /agent/my-profile or /app/my-profile
 - To make it visible in the sidebar navigation, set shouldRegisterNavigation(true) in the respective Provider.
 
 Reference
